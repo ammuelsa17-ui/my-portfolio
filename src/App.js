@@ -496,13 +496,13 @@ function App() {
       </header>
 
       {/* Main Container */}
-      <main className="relative z-10 w-full pointer-events-none">
+      <main className="relative z-10 w-full pointer-events-auto">
         
         {/* Section 1: Hero / Home */}
         <section 
           id="home" 
           ref={homeRef} 
-          className="relative min-h-screen text-brand-charcoalDark pt-32 pb-44 px-6 md:px-12 flex flex-col justify-center items-center overflow-visible"
+          className="relative text-brand-charcoalDark pt-24 md:pt-32 pb-16 md:pb-32 px-4 sm:px-6 md:px-12 flex flex-col justify-center items-center overflow-visible"
         >
           <div className="absolute inset-0 bg-brand-creamPrimary -z-20 pointer-events-none" />
           <div className="absolute inset-0 grid-pattern-dark grid-mask opacity-50 -z-20 pointer-events-none" />
@@ -518,7 +518,7 @@ function App() {
               }`}>
                 + WELCOME TO MY PORTFOLIO
               </div>
-              <h1 className={`font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.8rem] xl:text-[4.5rem] whitespace-nowrap tracking-tighter leading-none uppercase mb-4 text-brand-charcoalDark transition-all duration-700 ease-out transform delay-100 ${
+              <h1 className={`font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.8rem] xl:text-[4.5rem] tracking-tighter leading-none uppercase mb-4 text-brand-charcoalDark transition-all duration-700 ease-out transform delay-100 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
                 HARSHINI
@@ -613,9 +613,9 @@ function App() {
             </div>
             
             {/* Right Column Image & Welcome Card */}
-            <div className={`relative w-full flex justify-center items-center z-20 pointer-events-auto mt-8 md:mt-0 transition-all duration-1000 ease-out transform delay-300 overflow-visible ${
+            <div className={`relative w-full flex flex-col justify-center items-center z-20 pointer-events-auto mt-8 md:mt-0 min-h-[300px] md:min-h-[520px] transition-all duration-1000 ease-out transform delay-300 overflow-visible ${
               isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`} style={{ minHeight: '520px' }}>
+            }`}>
 
               {/* Red glow circle behind character */}
               <div style={{
@@ -623,8 +623,8 @@ function App() {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '480px',
-                height: '480px',
+                width: 'min(90vw, 480px)',
+                height: 'min(90vw, 480px)',
                 borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(220,50,50,0.32) 0%, rgba(230,57,70,0.18) 35%, rgba(255,120,120,0.06) 65%, transparent 80%)',
                 pointerEvents: 'none',
@@ -633,19 +633,19 @@ function App() {
               }} />
 
               {/* Floating code snippets */}
-              <div style={{ position: 'absolute', top: '10%', left: '5%', zIndex: 3, pointerEvents: 'none', animation: 'float 5s ease-in-out infinite', opacity: 0.45 }}>
+              <div className="hidden sm:block" style={{ position: 'absolute', top: '10%', left: '5%', zIndex: 3, pointerEvents: 'none', animation: 'float 5s ease-in-out infinite', opacity: 0.45 }}>
                 <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#e63946', background: 'rgba(253,240,238,0.7)', padding: '3px 7px', borderRadius: '6px', backdropFilter: 'blur(4px)' }}>{'function() {'}</span>
               </div>
-              <div style={{ position: 'absolute', top: '18%', right: '2%', zIndex: 3, pointerEvents: 'none', animation: 'float 4s ease-in-out infinite 1s', opacity: 0.4 }}>
+              <div className="hidden sm:block" style={{ position: 'absolute', top: '18%', right: '2%', zIndex: 3, pointerEvents: 'none', animation: 'float 4s ease-in-out infinite 1s', opacity: 0.4 }}>
                 <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#e63946', background: 'rgba(253,240,238,0.7)', padding: '3px 7px', borderRadius: '6px' }}>{'return true;'}</span>
               </div>
-              <div style={{ position: 'absolute', top: '55%', left: '2%', zIndex: 3, pointerEvents: 'none', animation: 'float 6s ease-in-out infinite 0.5s', opacity: 0.35 }}>
+              <div className="hidden sm:block" style={{ position: 'absolute', top: '55%', left: '2%', zIndex: 3, pointerEvents: 'none', animation: 'float 6s ease-in-out infinite 0.5s', opacity: 0.35 }}>
                 <span style={{ fontFamily: 'monospace', fontSize: '10px', color: '#e63946', background: 'rgba(253,240,238,0.7)', padding: '3px 7px', borderRadius: '6px' }}>{'{ } 001'}</span>
               </div>
-              <div style={{ position: 'absolute', top: '30%', right: '0%', zIndex: 3, pointerEvents: 'none', animation: 'float 4.5s ease-in-out infinite 2s', opacity: 0.5 }}>
+              <div className="hidden sm:block" style={{ position: 'absolute', top: '30%', right: '0%', zIndex: 3, pointerEvents: 'none', animation: 'float 4.5s ease-in-out infinite 2s', opacity: 0.5 }}>
                 <span style={{ fontFamily: 'monospace', fontSize: '13px', fontWeight: 'bold', color: '#e63946', background: 'rgba(253,240,238,0.8)', padding: '4px 9px', borderRadius: '8px' }}>{'</>'}</span>
               </div>
-              <div style={{ position: 'absolute', bottom: '10%', right: '0%', zIndex: 3, pointerEvents: 'none', animation: 'float 5.5s ease-in-out infinite 1.5s', opacity: 0.45 }}>
+              <div className="hidden sm:block" style={{ position: 'absolute', bottom: '10%', right: '0%', zIndex: 3, pointerEvents: 'none', animation: 'float 5.5s ease-in-out infinite 1.5s', opacity: 0.45 }}>
                 <span style={{ fontFamily: 'monospace', fontSize: '13px', fontWeight: 'bold', color: '#e63946', background: 'rgba(253,240,238,0.8)', padding: '4px 9px', borderRadius: '8px' }}>{'</>'}</span>
               </div>
 
@@ -653,19 +653,19 @@ function App() {
               <div className="hero-image-wrapper" style={{ overflow: 'visible', position: 'relative', zIndex: 2, width: '100%', display: 'flex', justifyContent: 'center' }}>
                 <div style={{ animation: 'float 3s ease-in-out infinite', width: '100%', display: 'flex', justifyContent: 'center' }}>
                   <img
-                    src={`${process.env.PUBLIC_URL}/hero_illustration.png`}
-                    alt="Harshini - Full Stack Developer"
-                    style={{
-                      width: '100%',
-                      maxWidth: '560px',
-                      height: 'auto',
-                      objectFit: 'contain',
-                      mixBlendMode: 'multiply',
-                      filter: 'drop-shadow(0px 20px 60px rgba(220, 50, 50, 0.35))',
-                      background: 'transparent',
-                      display: 'block',
-                    }}
-                  />
+                     src={`${process.env.PUBLIC_URL}/hero_illustration.png`}
+                     alt="Harshini - Full Stack Developer"
+                     style={{
+                       width: '100%',
+                       maxWidth: 'min(90vw, 560px)',
+                       height: 'auto',
+                       objectFit: 'contain',
+                       mixBlendMode: 'multiply',
+                       filter: 'drop-shadow(0px 20px 60px rgba(220, 50, 50, 0.35))',
+                       background: 'transparent',
+                       display: 'block',
+                     }}
+                   />
                 </div>
               </div>
 
@@ -673,7 +673,7 @@ function App() {
 
               {/* Floating Welcome Audio Card */}
               {welcomeCardVisible && (
-                <div className="absolute bottom-4 right-0 z-30 w-[300px] sm:w-[360px] bg-white/95 backdrop-blur-md border border-brand-charcoalDark/10 rounded-3xl p-4 shadow-2xl flex items-center gap-4 animate-fade-in transition-all duration-300">
+                <div className="md:absolute md:bottom-4 md:right-0 relative mt-6 md:mt-0 z-30 w-full max-w-[360px] bg-white/95 backdrop-blur-md border border-brand-charcoalDark/10 rounded-3xl p-4 shadow-2xl flex items-center gap-4 animate-fade-in transition-all duration-300">
                   <button 
                     onClick={() => setWelcomeCardVisible(false)}
                     className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-brand-creamSecondary/50 hover:bg-brand-redAccent hover:text-brand-creamPrimary border border-brand-charcoalDark/5 flex items-center justify-center text-xs font-bold transition-all duration-200 cursor-pointer z-10"
@@ -730,60 +730,60 @@ function App() {
           </div>
 
           {/* Stats Bar at the bottom of the Hero Section */}
-          <div ref={statsRef} className="w-full max-w-7xl mx-auto mt-24 bg-brand-charcoalDark text-brand-creamPrimary rounded-3xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6 relative z-20 pointer-events-auto shadow-xl reveal-element">
+          <div ref={statsRef} className="w-full max-w-7xl mx-auto mt-24 bg-brand-charcoalDark text-brand-creamPrimary rounded-3xl p-6 md:p-8 relative z-20 pointer-events-auto shadow-xl reveal-element grid grid-cols-2 md:flex md:flex-row justify-between items-center gap-6">
             {/* Stat 1: Projects */}
-            <div className="flex items-center gap-4 flex-1 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-brand-creamWarm/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="flex flex-row items-center gap-3 md:gap-4 flex-1 justify-start pl-0 md:pl-2">
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-brand-creamWarm/85" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="16 18 22 12 16 6" />
                   <polyline points="8 6 2 12 8 18" />
                 </svg>
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-xl font-heading font-black text-brand-redAccent leading-tight">{projectsCount}+</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white">Projects Completed</span>
+                <span className="text-lg md:text-2xl font-heading font-black text-brand-redAccent leading-tight">{projectsCount}+</span>
+                <span className="font-mono text-[9px] md:text-[11px] uppercase tracking-wider text-white/70">Projects</span>
               </div>
             </div>
             
-            <div className="hidden md:block w-[1px] h-8 bg-brand-creamPrimary/10" />
+            <div className="hidden md:block w-[1px] self-stretch bg-brand-creamPrimary/10" />
             
             {/* Stat 2: Technologies */}
-            <div className="flex items-center gap-4 flex-1 justify-center">
-              <div className="w-12 h-12 rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-brand-creamWarm/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="flex flex-row items-center gap-3 md:gap-4 flex-1 justify-start md:justify-center pl-0 md:pl-2">
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-brand-creamWarm/85" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="12 2 2 7 12 12 22 7 12 2" />
                   <polyline points="2 17 12 22 22 17" />
                   <polyline points="2 12 12 17 22 12" />
                 </svg>
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-xl font-heading font-black text-brand-redAccent leading-tight">{techsCount}+</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white">Technologies Mastered</span>
+                <span className="text-lg md:text-2xl font-heading font-black text-brand-redAccent leading-tight">{techsCount}+</span>
+                <span className="font-mono text-[9px] md:text-[11px] uppercase tracking-wider text-white/70">Techs Mastered</span>
               </div>
             </div>
             
-            <div className="hidden md:block w-[1px] h-8 bg-brand-creamPrimary/10" />
+            <div className="hidden md:block w-[1px] self-stretch bg-brand-creamPrimary/10" />
             
             {/* Stat 3: Internships */}
-            <div className="flex items-center gap-4 flex-1 justify-center">
-              <div className="w-12 h-12 rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-brand-creamWarm/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="flex flex-row items-center gap-3 md:gap-4 flex-1 justify-start md:justify-center pl-0 md:pl-2">
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-brand-creamWarm/85" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                   <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
                 </svg>
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-xl font-heading font-black text-brand-redAccent leading-tight">OPEN TO</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white">Internships</span>
+                <span className="text-lg md:text-2xl font-heading font-black text-brand-redAccent leading-tight">OPEN TO</span>
+                <span className="font-mono text-[9px] md:text-[11px] uppercase tracking-wider text-white/70">Internships</span>
               </div>
             </div>
             
-            <div className="hidden md:block w-[1px] h-8 bg-brand-creamPrimary/10" />
+            <div className="hidden md:block w-[1px] self-stretch bg-brand-creamPrimary/10" />
             
             {/* Stat 4: Developer Role */}
-            <div className="flex items-center gap-4 flex-1 justify-center md:justify-end">
-              <div className="w-12 h-12 rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-brand-creamWarm/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="flex flex-row items-center gap-3 md:gap-4 flex-1 justify-start md:justify-end pl-0 md:pl-2 pr-0 md:pr-2">
+              <div className="w-9 h-9 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-brand-creamPrimary/5 border border-brand-creamPrimary/10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-brand-creamWarm/85" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5" />
                   <path d="M12 18c-1.5 0-3-1.5-3-3l1-2h4l1 2c0 1.5-1.5 3-3 3z" />
                   <path d="M19 5c-1.5-1.5-4.5-2-7.5-2C8.5 3 5 6.5 5 9.5c0 3 .5 6 2 7.5L12 12l5-5z" />
@@ -791,8 +791,8 @@ function App() {
                 </svg>
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-xl font-heading font-black text-brand-redAccent leading-tight">AI & FULL STACK</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white">Developer</span>
+                <span className="text-lg md:text-2xl font-heading font-black text-brand-redAccent leading-tight">AI & STACK</span>
+                <span className="font-mono text-[9px] md:text-[11px] uppercase tracking-wider text-white/70">Developer</span>
               </div>
             </div>
           </div>
@@ -802,7 +802,7 @@ function App() {
         <section 
           id="about" 
           ref={aboutRef} 
-          className="relative min-h-screen text-brand-charcoalDark py-32 px-6 md:px-12 overflow-hidden border-t border-brand-charcoalDark/5"
+          className="relative text-brand-charcoalDark py-16 md:py-24 px-6 md:px-12 overflow-hidden border-t border-brand-charcoalDark/5"
         >
           <div className="absolute inset-0 bg-brand-creamPrimary -z-20 pointer-events-none" />
           <div className="absolute inset-0 grid-pattern-dark grid-mask opacity-30 -z-20 pointer-events-none" />
@@ -844,52 +844,72 @@ function App() {
               
               {/* Process Steps */}
               <div className="flex flex-col gap-10 w-full relative z-10 pl-0 md:pl-16">
-                
-                {/* Step 1 */}
-                <div className="relative group w-full flex flex-col md:flex-row gap-6 md:items-center glass-card-dark p-6 md:p-8 hover:-translate-y-1 transition-all duration-300 reveal-element">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-redAccent text-brand-creamPrimary flex items-center justify-center font-mono font-bold text-sm z-20 border-4 border-brand-creamPrimary shadow-md relative md:absolute md:-left-[64px] md:top-1/2 md:-translate-y-1/2">
+                    {/* Step 1 */}
+                <div className="relative group w-full flex flex-col md:flex-row gap-6 md:items-center glass-card-dark p-6 md:p-8 hover:-translate-y-1 hover:border-brand-redAccent/30 hover:shadow-lg transition-all duration-300 reveal-element">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-redAccent text-brand-creamPrimary flex items-center justify-center font-mono font-bold text-sm z-20 border-4 border-brand-creamPrimary shadow-md relative md:absolute md:-left-[64px] md:top-1/2 md:-translate-y-1/2 group-hover:scale-110 transition-transform duration-300">
                     01
                   </div>
                   <div className="flex-1 md:pl-0">
-                    <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-brand-charcoalDark mb-2 flex flex-wrap items-center gap-2 md:gap-3">
-                      Plan & Design
-                      <span className="text-xs font-mono font-bold text-brand-redAccent py-0.5 px-2 bg-brand-redAccent/10 rounded">Strategy</span>
-                    </h3>
-                    <p className="text-sm text-brand-charcoalMedium leading-relaxed">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-brand-charcoalDark flex flex-wrap items-center gap-2 md:gap-3">
+                        Plan & Design
+                      </h3>
+                      <span className="text-[10px] font-mono font-bold text-brand-redAccent py-0.5 px-2 bg-brand-redAccent/10 rounded group-hover:bg-brand-redAccent group-hover:text-brand-creamPrimary transition-all duration-300">Strategy</span>
+                    </div>
+                    <p className="text-sm text-brand-charcoalMedium leading-relaxed mb-3">
                       Analyzing logic constraints, data structures, and user interfaces to draft clean structural solutions.
                     </p>
+                    <div className="flex gap-4 text-[10px] font-mono text-brand-charcoalMedium/60">
+                      <span>◽ Wireframes</span>
+                      <span>◽ Architecture</span>
+                      <span>◽ UX Mapping</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Step 2 */}
-                <div className="relative group w-full flex flex-col md:flex-row gap-6 md:items-center glass-card-dark border border-brand-redAccent/30 p-6 md:p-8 hover:-translate-y-1 transition-all duration-300 reveal-element reveal-delay-100">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-redAccent text-brand-creamPrimary flex items-center justify-center font-mono font-bold text-sm z-20 border-4 border-brand-creamPrimary shadow-md relative md:absolute md:-left-[64px] md:top-1/2 md:-translate-y-1/2">
+                <div className="relative group w-full flex flex-col md:flex-row gap-6 md:items-center glass-card-dark border border-brand-redAccent/30 p-6 md:p-8 hover:-translate-y-1 hover:border-brand-redAccent/50 hover:shadow-lg transition-all duration-300 reveal-element reveal-delay-100">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-redAccent text-brand-creamPrimary flex items-center justify-center font-mono font-bold text-sm z-20 border-4 border-brand-creamPrimary shadow-md relative md:absolute md:-left-[64px] md:top-1/2 md:-translate-y-1/2 group-hover:scale-110 transition-transform duration-300">
                     02
                   </div>
                   <div className="flex-1 md:pl-0">
-                    <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-brand-charcoalDark mb-2 flex flex-wrap items-center gap-2 md:gap-3">
-                      Develop & Program
-                      <span className="text-xs font-mono font-bold bg-brand-redAccent text-brand-creamPrimary py-0.5 px-2 rounded">Codebase</span>
-                    </h3>
-                    <p className="text-sm text-brand-charcoalMedium leading-relaxed">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-brand-charcoalDark flex flex-wrap items-center gap-2 md:gap-3">
+                        Develop & Program
+                      </h3>
+                      <span className="text-[10px] font-mono font-bold bg-brand-redAccent text-brand-creamPrimary py-0.5 px-2 rounded group-hover:bg-brand-charcoalDark transition-all duration-300">Codebase</span>
+                    </div>
+                    <p className="text-sm text-brand-charcoalMedium leading-relaxed mb-3">
                       Writing modular C++ structures, clean React frontend interfaces, and robust Node.js APIs.
                     </p>
+                    <div className="flex gap-4 text-[10px] font-mono text-brand-charcoalMedium/60">
+                      <span>◽ Clean C++</span>
+                      <span>◽ React / Tailwind</span>
+                      <span>◽ REST APIs</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Step 3 */}
-                <div className="relative group w-full flex flex-col md:flex-row gap-6 md:items-center glass-card-dark p-6 md:p-8 hover:-translate-y-1 transition-all duration-300 reveal-element reveal-delay-200">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-redAccent text-brand-creamPrimary flex items-center justify-center font-mono font-bold text-sm z-20 border-4 border-brand-creamPrimary shadow-md relative md:absolute md:-left-[64px] md:top-1/2 md:-translate-y-1/2">
+                <div className="relative group w-full flex flex-col md:flex-row gap-6 md:items-center glass-card-dark p-6 md:p-8 hover:-translate-y-1 hover:border-brand-redAccent/30 hover:shadow-lg transition-all duration-300 reveal-element reveal-delay-200">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-redAccent text-brand-creamPrimary flex items-center justify-center font-mono font-bold text-sm z-20 border-4 border-brand-creamPrimary shadow-md relative md:absolute md:-left-[64px] md:top-1/2 md:-translate-y-1/2 group-hover:scale-110 transition-transform duration-300">
                     03
                   </div>
                   <div className="flex-1 md:pl-0">
-                    <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-brand-charcoalDark mb-2 flex flex-wrap items-center gap-2 md:gap-3">
-                      Optimize & Deploy
-                      <span className="text-xs font-mono font-bold text-brand-redAccent py-0.5 px-2 bg-brand-redAccent/10 rounded">Launch</span>
-                    </h3>
-                    <p className="text-sm text-brand-charcoalMedium leading-relaxed">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-brand-charcoalDark flex flex-wrap items-center gap-2 md:gap-3">
+                        Optimize & Deploy
+                      </h3>
+                      <span className="text-[10px] font-mono font-bold text-brand-redAccent py-0.5 px-2 bg-brand-redAccent/10 rounded group-hover:bg-brand-redAccent group-hover:text-brand-creamPrimary transition-all duration-300">Launch</span>
+                    </div>
+                    <p className="text-sm text-brand-charcoalMedium leading-relaxed mb-3">
                       Running performance benchmarks, debugging, and hosting applications on cloud servers.
                     </p>
+                    <div className="flex gap-4 text-[10px] font-mono text-brand-charcoalMedium/60">
+                      <span>◽ Auditing</span>
+                      <span>◽ Git / CI-CD</span>
+                      <span>◽ CDN Hosting</span>
+                    </div>
                   </div>
                 </div>
 
@@ -903,7 +923,7 @@ function App() {
         <section 
           id="skills" 
           ref={skillsRef} 
-          className="relative min-h-screen text-brand-charcoalDark py-32 px-6 md:px-12 border-t border-brand-charcoalDark/5"
+          className="relative text-brand-charcoalDark py-16 md:py-24 px-6 md:px-12 border-t border-brand-charcoalDark/5"
         >
           <div className="absolute inset-0 bg-brand-creamPrimary -z-20 pointer-events-none" />
 
@@ -920,28 +940,38 @@ function App() {
               </p>
             </div>
 
-            {/* Skills Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pointer-events-auto">
-              {skillCategories.map((category, idx) => (
-                <div 
-                  key={idx} 
-                  className={`glass-card-dark border-l-4 border-l-brand-crimsonAccent p-6 hover:transform hover:-translate-y-2 transition-all duration-300 reveal-element ${
-                    idx === 0 ? '' : idx === 1 ? 'reveal-delay-75' : idx === 2 ? 'reveal-delay-150' : 'reveal-delay-200'
-                  }`}
-                >
-                  <h3 className="font-heading font-extrabold text-base md:text-lg text-brand-charcoalDark uppercase mb-6 tracking-tight">
-                    {category.title}
-                  </h3>
-                  <div className="flex flex-col gap-4">
-                    {category.skills.map((skill, sIdx) => (
-                      <div key={sIdx} className="flex justify-between items-center border-b border-brand-charcoalDark/5 pb-2">
-                        <span className="text-brand-charcoalDark/80 font-medium text-sm">{skill}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-redAccent" />
-                      </div>
-                    ))}
+            {/* Skills Grid - Desktop Grid / Mobile Stack Carousel */}
+            <div className="relative pointer-events-auto min-h-[400px]">
+              {/* Desktop Grid Layout */}
+              <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-8">
+                {skillCategories.map((category, idx) => (
+                  <div 
+                    key={idx} 
+                    className={`glass-card-dark border-l-4 border-l-brand-charcoalDark/20 hover:border-l-brand-redAccent p-6 hover:-translate-y-2 hover:shadow-lg hover:shadow-brand-redAccent/[0.01] transition-all duration-500 ease-out group/skill reveal-element ${
+                      idx === 0 ? '' : idx === 1 ? 'reveal-delay-75' : idx === 2 ? 'reveal-delay-150' : 'reveal-delay-200'
+                    }`}
+                  >
+                    <h3 className="font-heading font-extrabold text-base md:text-lg text-brand-charcoalDark uppercase mb-6 tracking-tight flex items-center justify-between">
+                      {category.title}
+                      <span className="text-[10px] font-mono font-bold text-brand-redAccent/45 group-hover/skill:text-brand-redAccent transition-colors duration-300">✦</span>
+                    </h3>
+                    <div className="flex flex-col gap-4">
+                      {category.skills.map((skill, sIdx) => (
+                        <div key={sIdx} className="flex justify-between items-center border-b border-brand-charcoalDark/5 pb-2 group/row">
+                          <span className="text-brand-charcoalDark/85 font-medium text-sm group-hover/row:text-brand-redAccent transition-colors duration-200">{skill}</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-charcoalDark/25 group-hover/row:bg-brand-redAccent group-hover/row:scale-125 transition-all duration-300" />
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Mobile Card Stack / Shuffle Layout */}
+              <div className="block sm:hidden relative w-full max-w-[320px] mx-auto h-[360px] mt-6">
+                {/* Active Skill Stack State Manager */}
+                <SkillStackContainer skillCategories={skillCategories} />
+              </div>
             </div>
           </div>
         </section>
@@ -950,7 +980,7 @@ function App() {
         <section 
           id="projects" 
           ref={projectsRef} 
-          className="relative min-h-screen text-brand-charcoalDark py-32 px-6 md:px-12 border-t border-brand-charcoalDark/5"
+          className="relative text-brand-charcoalDark py-16 md:py-24 px-6 md:px-12 border-t border-brand-charcoalDark/5"
         >
           <div className="absolute inset-0 bg-brand-creamPrimary -z-20 pointer-events-none" />
           <div className="w-full max-w-7xl mx-auto relative z-30">
@@ -1077,7 +1107,7 @@ function App() {
         <section 
           id="contact" 
           ref={contactRef} 
-          className="relative min-h-screen text-brand-charcoalDark pt-32 pb-16 px-6 md:px-12 overflow-hidden flex flex-col justify-between"
+          className="relative text-brand-charcoalDark pt-16 md:pt-24 pb-16 px-6 md:px-12 overflow-hidden flex flex-col justify-between"
         >
           <div className="absolute inset-0 bg-brand-creamPrimary -z-20 pointer-events-none" />
           {/* Giant Watermark Text Background */}
@@ -1239,7 +1269,7 @@ function App() {
             {/* Giant Stylized Watermark Logo scrolling at the bottom */}
             <div className="w-full overflow-hidden border-t border-brand-charcoalDark/5 py-4 select-none pointer-events-none">
               <div className="flex whitespace-nowrap animate-marquee">
-                {Array(6).fill("HARSHINI • FULL STACK DEVELOPER • CREATIVE CODER • ").map((text, idx) => (
+                {Array(6).fill("HARSHINI.I  ").map((text, idx) => (
                   <span key={idx} className="font-heading font-black text-[12vw] leading-none text-brand-charcoalDark opacity-[0.04] tracking-tighter mr-8">
                     {text}
                   </span>
@@ -1344,6 +1374,102 @@ function App() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// Mobile-specific interactive Shuffle Stack Card Layout Component
+function SkillStackContainer({ skillCategories }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % skillCategories.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + skillCategories.length) % skillCategories.length);
+  };
+
+  return (
+    <div className="w-full h-full flex flex-col justify-between items-center relative overflow-visible">
+      {/* Cards stack layer */}
+      <div className="relative w-full h-[280px] flex items-center justify-center overflow-visible">
+        {skillCategories.map((category, idx) => {
+          // Calculate stack offset indices relative to activeIndex
+          const offset = (idx - activeIndex + skillCategories.length) % skillCategories.length;
+          const isActive = offset === 0;
+          const isNext = offset === 1;
+          const isFar = offset >= 2;
+
+          // Compute custom styles for card positions
+          const scale = isActive ? 1 : isNext ? 0.94 : 0.88;
+          const translateY = isActive ? 0 : isNext ? 12 : 24;
+          const rotate = isActive ? 0 : isNext ? 3 : -3;
+          const zIndex = skillCategories.length - offset;
+          const opacity = isActive ? 1 : isNext ? 0.75 : 0.4;
+
+          return (
+            <div 
+              key={idx}
+              onClick={() => {
+                if (!isActive) {
+                  setActiveIndex(idx);
+                }
+              }}
+              style={{
+                transform: `translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
+                zIndex: zIndex,
+                opacity: opacity,
+                transition: 'transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.45s ease',
+              }}
+              className={`absolute top-0 w-full h-full glass-card-dark p-6 border-l-4 border-l-brand-redAccent cursor-pointer select-none bg-brand-creamSecondary shadow-2xl flex flex-col justify-between`}
+            >
+              <div>
+                <h3 className="font-heading font-black text-lg text-brand-charcoalDark uppercase mb-4 tracking-tight flex items-center justify-between border-b border-brand-charcoalDark/5 pb-2">
+                  {category.title}
+                  <span className="text-xs font-mono font-bold text-brand-redAccent">✦ 0{idx + 1}</span>
+                </h3>
+                <div className="flex flex-col gap-2.5">
+                  {category.skills.map((skill, sIdx) => (
+                    <div key={sIdx} className="flex justify-between items-center border-b border-brand-charcoalDark/5 pb-1">
+                      <span className="text-brand-charcoalDark/85 font-medium text-xs">{skill}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-redAccent" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="w-full text-center text-[9px] font-mono text-brand-charcoalMedium/40 tracking-wider">
+                {isActive ? "ACTIVE CARD // TAP TO CYCLE" : "TAP TO SHUFFLE"}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Stack Navigation Action Controls */}
+      <div className="flex items-center gap-6 mt-4 z-30">
+        <button 
+          onClick={handlePrev}
+          className="w-10 h-10 rounded-full border border-brand-charcoalDark/10 hover:border-brand-redAccent text-brand-charcoalDark hover:text-brand-redAccent flex items-center justify-center transition-all bg-white shadow-md active:scale-95 cursor-pointer font-bold"
+        >
+          ←
+        </button>
+        <div className="flex gap-2">
+          {skillCategories.map((_, idx) => (
+            <span 
+              key={idx} 
+              onClick={() => setActiveIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx ? 'bg-brand-redAccent w-6' : 'bg-brand-charcoalDark/25'}`}
+            />
+          ))}
+        </div>
+        <button 
+          onClick={handleNext}
+          className="w-10 h-10 rounded-full border border-brand-charcoalDark/10 hover:border-brand-redAccent text-brand-charcoalDark hover:text-brand-redAccent flex items-center justify-center transition-all bg-white shadow-md active:scale-95 cursor-pointer font-bold"
+        >
+          →
+        </button>
+      </div>
     </div>
   );
 }
