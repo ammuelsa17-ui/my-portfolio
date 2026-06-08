@@ -1,13 +1,341 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom fonts and design variables */
+:root {
+  --brand-red: #e63946;
+  --brand-crimson: #d62232;
+  --brand-cream-primary: #fdf6f0;
+  --brand-cream-warm: #fdf6f0;
+  --brand-cream-secondary: #fbf1e8;
+  --text-dark-charcoal: #1a1a1a;
+  --text-medium-charcoal: #444444;
+  
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--brand-cream-primary);
+  color: var(--text-dark-charcoal);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-cream-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-red);
+  border-radius: 10px;
+  border: 2px solid var(--brand-cream-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-crimson);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--brand-red);
+  color: var(--brand-cream-warm);
+}
+
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: var(--brand-red);
+  z-index: 1000;
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* High-impact outline text styling */
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(43, 43, 43, 0.12);
+}
+
+.text-outline-black {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(43, 43, 43, 0.08);
+}
+
+.text-outline-red {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(215, 38, 56, 0.25);
+}
+
+/* Keyframes & custom animations */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash {
+  stroke-dasharray: 8, 8;
+  animation: dash 2s linear infinite;
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+  background: rgba(248, 245, 240, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(43, 43, 43, 0.06);
+}
+
+.glass-card-dark {
+  background: rgba(243, 238, 231, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(43, 43, 43, 0.06);
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 30px -10px rgba(43, 43, 43, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+}
+.grid-pattern-dark {
+  background-image: 
+    linear-gradient(to right, rgba(43, 43, 43, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(43, 43, 43, 0.015) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.grid-mask {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+
+/* Wave and layout clip path dividers */
+.curve-divider-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(-99%);
+}
+
+.curve-divider-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: auto;
+}
+
+/* Waveform audio bars animations */
+@keyframes wave-bar-1 {
+  0%, 100% { height: 10px; y: 10px; }
+  50% { height: 22px; y: 4px; }
+}
+@keyframes wave-bar-2 {
+  0%, 100% { height: 20px; y: 5px; }
+  50% { height: 8px; y: 11px; }
+}
+@keyframes wave-bar-3 {
+  0%, 100% { height: 6px; y: 12px; }
+  50% { height: 24px; y: 3px; }
+}
+@keyframes wave-bar-4 {
+  0%, 100% { height: 14px; y: 8px; }
+  50% { height: 10px; y: 10px; }
+}
+@keyframes wave-bar-5 {
+  0%, 100% { height: 24px; y: 3px; }
+  50% { height: 12px; y: 9px; }
+}
+
+.animate-wave-bar-1 { animation: wave-bar-1 1s ease-in-out infinite; }
+.animate-wave-bar-2 { animation: wave-bar-2 0.8s ease-in-out infinite; }
+.animate-wave-bar-3 { animation: wave-bar-3 1.2s ease-in-out infinite; }
+.animate-wave-bar-4 { animation: wave-bar-4 0.9s ease-in-out infinite; }
+.animate-wave-bar-5 { animation: wave-bar-5 1.1s ease-in-out infinite; }
+
+/* Page transition wipe animations */
+@keyframes page-wipe {
+  0% {
+    transform: translateX(-100%);
+  }
+  45%, 55% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-wipe-black {
+  animation: page-wipe 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.animate-wipe-red {
+  animation: page-wipe 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.08s forwards;
+}
+
+/* Scroll Reveal Animation Styles */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-element.reveal-delay-75 { transition-delay: 75ms; }
+.reveal-element.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-element.reveal-delay-150 { transition-delay: 150ms; }
+.reveal-element.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-element.reveal-delay-300 { transition-delay: 300ms; }
+.reveal-element.reveal-delay-400 { transition-delay: 400ms; }
+.reveal-element.reveal-delay-500 { transition-delay: 500ms; }
+
+/* Modal Entrance Animations */
+@keyframes modal-scale-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modal-fade-in {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+.animate-modal-scale-up {
+  animation: modal-scale-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-fade-in {
+  animation: modal-fade-in 0.3s ease-out forwards;
+}
+
+/* Hero character floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-15px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.06); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes shadow-pulse {
+  0%, 100% { opacity: 0.18; transform: scaleX(1); }
+  50%       { opacity: 0.10; transform: scaleX(0.85); }
+}
+
+/* Hero image wrapper — holds the ::before red glow circle */
+.hero-image-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(220, 50, 50, 0.32) 0%,
+    rgba(255, 130, 130, 0.14) 40%,
+    rgba(255, 150, 150, 0.05) 60%,
+    transparent 75%
+  );
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .hero-image-wrapper::before {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+/* Hero image — blends into cream background, floats gently */
+.hero-image {
+  mix-blend-mode: multiply;
+  background: transparent;
+  filter: drop-shadow(0 10px 30px rgba(200, 50, 50, 0.2));
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Ground contact shadow beneath the floating character */
+.hero-ground-shadow {
+  animation: shadow-pulse 3s ease-in-out infinite;
 }
