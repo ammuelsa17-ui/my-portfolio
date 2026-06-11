@@ -1125,37 +1125,68 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pointer-events-auto">
-              <div className="md:col-span-8 md:col-start-3">
-                <div className="glass-card-dark border-l-4 border-l-brand-redAccent p-8 md:p-10 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group reveal-element">
-                  {/* Decorative backdrop graphics */}
-                  <div className="absolute right-0 top-0 w-36 h-36 bg-brand-redAccent/[0.03] rounded-full translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-500" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pointer-events-auto">
+              
+              {/* Achievement 1: Mastermind */}
+              <div className="glass-card-dark border-l-4 border-l-brand-redAccent p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group reveal-element">
+                {/* Decorative backdrop graphics */}
+                <div className="absolute right-0 top-0 w-36 h-36 bg-brand-redAccent/[0.03] rounded-full translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-500" />
+                
+                {/* Trophy Symbol */}
+                <div className="flex flex-col sm:flex-row items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-redAccent/10 border border-brand-redAccent/20 flex items-center justify-center flex-shrink-0 text-2xl shadow-inner animate-pulse">
+                    🏆
+                  </div>
                   
-                  {/* Tropy Symbol */}
-                  <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
-                    <div className="w-16 h-16 rounded-2xl bg-brand-redAccent/10 border border-brand-redAccent/20 flex items-center justify-center flex-shrink-0 text-3xl shadow-inner animate-pulse">
-                      🏆
+                  <div>
+                    <div className="inline-flex items-center gap-2 font-mono text-[9px] font-bold text-brand-redAccent bg-brand-redAccent/10 px-3 py-1 rounded-full border border-brand-redAccent/20 uppercase tracking-widest mb-3">
+                      Mastermind 2K26 • Winner
                     </div>
-                    
-                    <div>
-                      <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold text-brand-redAccent bg-brand-redAccent/10 px-3 py-1 rounded-full border border-brand-redAccent/20 uppercase tracking-widest mb-3">
-                        Mastermind 2K26 • Winner
-                      </div>
-                      <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-brand-charcoalDark leading-tight mb-3">
-                        1st Prize Winner
-                      </h3>
-                      <p className="text-sm md:text-base text-brand-charcoalMedium leading-relaxed mb-4">
-                        Won 1st Place in the **Mastermind 2K26 Hackathon** for first-year students, hosted at **Karpagam Institute of Technology**. Challenged with creating a creative solution under tight timing constraints, demonstrating software innovation, presentation skills, and codebase modularity.
-                      </p>
-                      <div className="flex flex-wrap gap-4 text-xs font-mono text-brand-charcoalMedium/60">
-                        <span>📍 Karpagam Institute of Technology</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span>📅 2026</span>
-                      </div>
+                    <h3 className="font-heading font-black text-xl uppercase text-brand-charcoalDark leading-tight mb-3">
+                      1st Prize Winner
+                    </h3>
+                    <p className="text-xs md:text-sm text-brand-charcoalMedium leading-relaxed mb-4">
+                      Won 1st Place in the **Mastermind 2K26 Hackathon** for first-year students, hosted at **Karpagam Institute of Technology**. Challenged with creating a creative solution under tight timing constraints, demonstrating software innovation, presentation skills, and codebase modularity.
+                    </p>
+                    <div className="flex flex-wrap gap-3 text-[10px] font-mono text-brand-charcoalMedium/60">
+                      <span>📍 Karpagam Institute of Technology</span>
+                      <span>•</span>
+                      <span>📅 2026</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* Achievement 2: Hackversa */}
+              <div className="glass-card-dark border-l-4 border-l-brand-redAccent p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group reveal-element reveal-delay-150">
+                {/* Decorative backdrop graphics */}
+                <div className="absolute right-0 top-0 w-36 h-36 bg-brand-redAccent/[0.03] rounded-full translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-500" />
+                
+                {/* Medal Symbol */}
+                <div className="flex flex-col sm:flex-row items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-redAccent/10 border border-brand-redAccent/20 flex items-center justify-center flex-shrink-0 text-2xl shadow-inner">
+                    🥈
+                  </div>
+                  
+                  <div>
+                    <div className="inline-flex items-center gap-2 font-mono text-[9px] font-bold text-brand-redAccent bg-brand-redAccent/10 px-3 py-1 rounded-full border border-brand-redAccent/20 uppercase tracking-widest mb-3">
+                      Hackversa • Runner Up
+                    </div>
+                    <h3 className="font-heading font-black text-xl uppercase text-brand-charcoalDark leading-tight mb-3">
+                      2nd Prize Winner
+                    </h3>
+                    <p className="text-xs md:text-sm text-brand-charcoalMedium leading-relaxed mb-4">
+                      Won 2nd Place in the **Hackversa Hackathon** open for the whole college at **Karpagam Institute of Technology**. Developed a scalable prototype solution addressing real-world problem statements, collaborating in a team setup to design, construct, and present the final project.
+                    </p>
+                    <div className="flex flex-wrap gap-3 text-[10px] font-mono text-brand-charcoalMedium/60">
+                      <span>📍 Karpagam Institute of Technology</span>
+                      <span>•</span>
+                      <span>📅 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
