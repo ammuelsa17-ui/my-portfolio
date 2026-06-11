@@ -314,7 +314,8 @@ function App() {
       skills: ["React", "Python", "Automation", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
       image: `${process.env.PUBLIC_URL}/asthra.png`,
       github: "https://github.com",
-      demo: "https://kitasthra.in"
+      demo: "https://kitasthra.in",
+      badge: "Live Deployment — 500+ students"
     },
     {
       id: 2,
@@ -325,7 +326,8 @@ function App() {
       skills: ["React", "CSS3", "Charts.js", "Node.js", "State Management", "Tailwind CSS"],
       image: `${process.env.PUBLIC_URL}/edunexa.png`,
       github: "https://github.com",
-      demo: "https://github.com"
+      demo: "https://github.com",
+      badge: "1st Place — Mastermind 2K26"
     },
     {
       id: 3,
@@ -1028,6 +1030,12 @@ function App() {
                     <div className="absolute top-4 left-4 font-mono text-[9px] font-bold text-brand-redAccent bg-brand-creamPrimary/90 backdrop-blur-md py-1 px-2.5 rounded-full border border-brand-charcoalDark/5 tracking-widest uppercase">
                       {project.num.split(" // ")[1]}
                     </div>
+                    {/* Floating impact badge */}
+                    {project.badge && (
+                      <div className="absolute top-4 right-4 font-mono text-[9px] font-bold text-brand-creamPrimary bg-brand-redAccent/95 backdrop-blur-md py-1 px-2.5 rounded-full border border-brand-redAccent/10 tracking-wide uppercase">
+                        {project.badge}
+                      </div>
+                    )}
                   </div>
 
                   {/* Details Container */}
@@ -1146,7 +1154,7 @@ function App() {
                       1st Prize Winner
                     </h3>
                     <p className="text-xs md:text-sm text-brand-charcoalMedium leading-relaxed mb-4">
-                      Won 1st Place in the **Mastermind 2K26 Hackathon** for first-year students, hosted at **Karpagam Institute of Technology**. Challenged with creating a creative solution under tight timing constraints, demonstrating software innovation, presentation skills, and codebase modularity.
+                      Built a campus tech portal for students, faculty, and admin — live on Netlify. Won 1st place among first-year teams at Mastermind 2K26, Karpagam Institute of Technology.
                     </p>
                     <div className="flex flex-wrap gap-3 text-[10px] font-mono text-brand-charcoalMedium/60">
                       <span>📍 Karpagam Institute of Technology</span>
@@ -1176,7 +1184,7 @@ function App() {
                       2nd Prize Winner
                     </h3>
                     <p className="text-xs md:text-sm text-brand-charcoalMedium leading-relaxed mb-4">
-                      Won 2nd Place in the **Hackversa Hackathon** open for the whole college at **Karpagam Institute of Technology**. Developed a scalable prototype solution addressing real-world problem statements, collaborating in a team setup to design, construct, and present the final project.
+                      Placed 2nd at Hackversa — open competition across all years at Karpagam Institute of Technology. Competed against seniors as a first-year student.
                     </p>
                     <div className="flex flex-wrap gap-3 text-[10px] font-mono text-brand-charcoalMedium/60">
                       <span>📍 Karpagam Institute of Technology</span>
