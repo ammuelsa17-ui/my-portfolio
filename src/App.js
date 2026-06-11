@@ -97,6 +97,7 @@ function App() {
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
+  const achievementsRef = useRef(null);
   const contactRef = useRef(null);
 
   // Preloader progress simulation
@@ -188,13 +189,14 @@ function App() {
     return () => window.removeEventListener('scroll', handleNavbarScroll);
   }, []);
 
-  // Scrollspy to detect active section in viewport
+  // SectionSpy to detect active section in viewport
   useEffect(() => {
     const sections = [
       { id: 'home', ref: homeRef },
       { id: 'about', ref: aboutRef },
       { id: 'skills', ref: skillsRef },
       { id: 'projects', ref: projectsRef },
+      { id: 'achievements', ref: achievementsRef },
       { id: 'contact', ref: contactRef }
     ];
 
@@ -432,7 +434,7 @@ function App() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <ul className="flex gap-8 list-none m-0 p-0">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+            {['home', 'about', 'skills', 'projects', 'achievements', 'contact'].map((section) => (
               <li key={section} className="relative">
                 <button 
                   onClick={() => scrollToSection(section)}
@@ -473,7 +475,7 @@ function App() {
         {/* Mobile Dropdown Menu */}
         <div className={`fixed top-0 left-0 w-full h-screen bg-brand-creamPrimary/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 transition-transform duration-500 z-40 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <ul className="flex flex-col gap-6 list-none text-center p-0 m-0">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+            {['home', 'about', 'skills', 'projects', 'achievements', 'contact'].map((section) => (
               <li key={section}>
                 <button 
                   onClick={() => scrollToSection(section)}
@@ -1099,6 +1101,61 @@ function App() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Achievements */}
+        <section 
+          id="achievements" 
+          ref={achievementsRef} 
+          className="relative text-brand-charcoalDark py-16 md:py-24 px-6 md:px-12 border-t border-brand-charcoalDark/5"
+        >
+          <div className="absolute inset-0 bg-brand-creamPrimary -z-20 pointer-events-none" />
+          <div className="w-full max-w-7xl mx-auto relative z-30">
+            <div className="text-center md:text-left mb-16 pointer-events-auto reveal-element">
+              <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-brand-redAccent uppercase tracking-widest mb-4">
+                <span>✦</span> 04 // RECOGNITIONS
+              </div>
+              <h2 className="font-heading font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none mb-4">
+                Achievements
+              </h2>
+              <p className="text-brand-charcoalMedium max-w-lg text-base md:text-lg">
+                Key milestones, hackathons, and certifications celebrating creative problem solving and engineering excellence.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pointer-events-auto">
+              <div className="md:col-span-8 md:col-start-3">
+                <div className="glass-card-dark border-l-4 border-l-brand-redAccent p-8 md:p-10 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group reveal-element">
+                  {/* Decorative backdrop graphics */}
+                  <div className="absolute right-0 top-0 w-36 h-36 bg-brand-redAccent/[0.03] rounded-full translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-500" />
+                  
+                  {/* Tropy Symbol */}
+                  <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+                    <div className="w-16 h-16 rounded-2xl bg-brand-redAccent/10 border border-brand-redAccent/20 flex items-center justify-center flex-shrink-0 text-3xl shadow-inner animate-pulse">
+                      🏆
+                    </div>
+                    
+                    <div>
+                      <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold text-brand-redAccent bg-brand-redAccent/10 px-3 py-1 rounded-full border border-brand-redAccent/20 uppercase tracking-widest mb-3">
+                        Mastermind 2K26 • Winner
+                      </div>
+                      <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-brand-charcoalDark leading-tight mb-3">
+                        1st Prize Winner
+                      </h3>
+                      <p className="text-sm md:text-base text-brand-charcoalMedium leading-relaxed mb-4">
+                        Won 1st Place in the **Mastermind 2K26 Hackathon** for first-year students, hosted at **Karpagam Institute of Technology**. Challenged with creating a creative solution under tight timing constraints, demonstrating software innovation, presentation skills, and codebase modularity.
+                      </p>
+                      <div className="flex flex-wrap gap-4 text-xs font-mono text-brand-charcoalMedium/60">
+                        <span>📍 Karpagam Institute of Technology</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span>📅 2026</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
